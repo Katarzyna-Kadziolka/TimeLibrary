@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30413.136
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimeLibrary", "TimeLibrary\TimeLibrary.csproj", "{0A3415B8-9CC2-4CF1-979F-45D64E1E0F68}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TimeLibrary", "TimeLibrary\TimeLibrary.csproj", "{0A3415B8-9CC2-4CF1-979F-45D64E1E0F68}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimeTests", "TimeTests\TimeTests.csproj", "{D40B943C-326D-4679-8A20-2BCB402CCF91}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{0A3415B8-9CC2-4CF1-979F-45D64E1E0F68}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0A3415B8-9CC2-4CF1-979F-45D64E1E0F68}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0A3415B8-9CC2-4CF1-979F-45D64E1E0F68}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D40B943C-326D-4679-8A20-2BCB402CCF91}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D40B943C-326D-4679-8A20-2BCB402CCF91}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D40B943C-326D-4679-8A20-2BCB402CCF91}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D40B943C-326D-4679-8A20-2BCB402CCF91}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
