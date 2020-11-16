@@ -1,11 +1,11 @@
 ﻿using System;
-using System.Diagnostics.CodeAnalysis;
-using Microsoft.VisualBasic.CompilerServices;
 
 namespace TimeLibrary {
     public class Time : IComparable, IEquatable<Time> {
         private long _totalSecond;
+
         public int Hours => (int) (_totalSecond / (60 * 60));
+
         public int Minutes => (int) (_totalSecond % (60 * 60) / 60);
 
         public int Seconds => (int) (_totalSecond % (60 * 60) % 60);
@@ -56,7 +56,7 @@ namespace TimeLibrary {
                 throw new ArgumentNullException(nameof(obj));
             }
 
-            Time time = obj as Time;
+            Time? time = obj as Time;
             if (time is null) {
                 throw new ArgumentException("Object is not Time");
             }
@@ -64,21 +64,21 @@ namespace TimeLibrary {
             return this._totalSecond.CompareTo(time._totalSecond);
         }
 
-        bool IEquatable<Time>.Equals(Time other) {
+        bool IEquatable<Time>.Equals(Time? other) {
             return this._totalSecond.Equals(other?._totalSecond);
         }
 
         public override bool Equals(object? obj) {
-            if (obj is null) {
-                return false;
-            }
-
-            Time time = obj as Time;
+            Time? time = obj as Time;
             if (time is null) {
                 return false;
             }
 
             return this._totalSecond.Equals(time._totalSecond);
+        }
+
+        public override int GetHashCode() {
+            return _totalSecond.GetHashCode();
         }
 
 
@@ -90,5 +90,9 @@ namespace TimeLibrary {
         public static bool operator <=(Time a, Time b) => a.CompareTo(b) <= 0;
         public static bool operator ==(Time a, Time b) => a.Equals(b);
         public static bool operator !=(Time a, Time b) => !a.Equals(b);
+
+        public override string ToString() {
+            return $"{Hours:00}:{Minutes:00}:{Seconds:00}";
+        }
     }
 }

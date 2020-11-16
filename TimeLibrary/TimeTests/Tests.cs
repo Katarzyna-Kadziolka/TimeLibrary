@@ -1,6 +1,5 @@
 using System;
 using FluentAssertions;
-using FluentAssertions.Common;
 using NUnit.Framework;
 using TimeLibrary;
 
@@ -10,7 +9,7 @@ namespace TimeTests {
         public void Constructor_CorrectArguments_ShouldCreateTime() {
             // Arrange
             // Act
-            Time time = new Time(12, 48, 53);
+            Time _ = new Time(12, 48, 53);
             // Assert
         }
 
@@ -31,7 +30,7 @@ namespace TimeTests {
             const int minutes = 60;
             // Act
             Action act = () => {
-                Time time = new Time(minutes: minutes);
+                Time _ = new Time(minutes: minutes);
             };
             // Assert
             act.Should().Throw<ArgumentOutOfRangeException>()
@@ -44,7 +43,7 @@ namespace TimeTests {
             const int minutes = -60;
             // Act
             Action act = () => {
-                Time time = new Time(minutes: minutes);
+                Time _ = new Time(minutes: minutes);
             };
             // Assert
             act.Should().Throw<ArgumentOutOfRangeException>()
@@ -57,7 +56,7 @@ namespace TimeTests {
             const int seconds = 60;
             // Act
             Action act = () => {
-                Time time = new Time(seconds: seconds);
+                Time _ = new Time(seconds: seconds);
             };
             // Assert
             act.Should().Throw<ArgumentOutOfRangeException>()
@@ -70,7 +69,7 @@ namespace TimeTests {
             const int seconds = -60;
             // Act
             Action act = () => {
-                Time time = new Time(seconds: seconds);
+                Time _ = new Time(seconds: seconds);
             };
             // Assert
             act.Should().Throw<ArgumentOutOfRangeException>()
@@ -139,16 +138,16 @@ namespace TimeTests {
 
         [Test]
         public void Constructor_TimeArgument_ShouldCreateTime() {
-            //Arrange
+            // Arrange
             const int hours = 5;
             const int minutes = 15;
             const int seconds = 30;
             Time time = new Time(hours, minutes, seconds);
 
-            //Act 
+            // Act 
             Time cloneTime = new Time(time);
 
-            //Assert
+            // Assert
             cloneTime.Hours.Should().Be(hours);
             cloneTime.Minutes.Should().Be(minutes);
             cloneTime.Seconds.Should().Be(seconds);
@@ -156,16 +155,16 @@ namespace TimeTests {
 
         [Test]
         public void Constructor_MinusTimeArgument_ShouldCreateTime() {
-            //Arrange
+            // Arrange
             const int hours = -5;
             const int minutes = -15;
             const int seconds = -30;
             Time time = new Time(hours, minutes, seconds);
 
-            //Act 
+            // Act 
             Time cloneTime = new Time(time);
 
-            //Assert
+            // Assert
             cloneTime.Hours.Should().Be(hours);
             cloneTime.Minutes.Should().Be(minutes);
             cloneTime.Seconds.Should().Be(seconds);
@@ -173,13 +172,13 @@ namespace TimeTests {
 
         [Test]
         public void Constructor_DefaultTimeArgument_ShouldCreateTime() {
-            //Arrange
+            // Arrange
             Time time = new Time();
 
-            //Act 
+            // Act 
             Time cloneTime = new Time(time);
 
-            //Assert
+            // Assert
             cloneTime.Hours.Should().Be(0);
             cloneTime.Minutes.Should().Be(0);
             cloneTime.Seconds.Should().Be(0);
@@ -187,11 +186,11 @@ namespace TimeTests {
 
         [Test]
         public void AddSeconds_PositiveNumberArgument_ShouldReturnCorrectTime() {
-            //Arrange 
+            // Arrange 
             Time time = new Time();
-            //Act
+            // Act
             time.AddSeconds(3661);
-            //Assert
+            // Assert
             time.Hours.Should().Be(1);
             time.Minutes.Should().Be(1);
             time.Seconds.Should().Be(1);
@@ -199,11 +198,11 @@ namespace TimeTests {
 
         [Test]
         public void AddSeconds_NegativeNumberArgument_ShouldReturnCorrectTime() {
-            //Arrange 
+            // Arrange 
             Time time = new Time();
-            //Act
+            // Act
             time.AddSeconds(-3661);
-            //Assert
+            // Assert
             time.Hours.Should().Be(-1);
             time.Minutes.Should().Be(-1);
             time.Seconds.Should().Be(-1);
@@ -211,11 +210,11 @@ namespace TimeTests {
 
         [Test]
         public void AddSeconds_ZeroSecondsArgument_ShouldReturnCorrectTime() {
-            //Arrange 
+            // Arrange 
             Time time = new Time();
-            //Act
+            // Act
             time.AddSeconds(0);
-            //Assert
+            // Assert
             time.Hours.Should().Be(0);
             time.Minutes.Should().Be(0);
             time.Seconds.Should().Be(0);
@@ -223,11 +222,11 @@ namespace TimeTests {
 
         [Test]
         public void AddMinutes_PositiveNumberArgument_ShouldReturnCorrectTime() {
-            //Arrange 
+            // Arrange 
             Time time = new Time();
-            //Act
+            // Act
             time.AddMinutes(61);
-            //Assert
+            // Assert
             time.Hours.Should().Be(1);
             time.Minutes.Should().Be(1);
             time.Seconds.Should().Be(0);
@@ -235,11 +234,11 @@ namespace TimeTests {
 
         [Test]
         public void AddMinutes_NegativeNumberArgument_ShouldReturnCorrectTime() {
-            //Arrange 
+            // Arrange 
             Time time = new Time();
-            //Act
+            // Act
             time.AddMinutes(-61);
-            //Assert
+            // Assert
             time.Hours.Should().Be(-1);
             time.Minutes.Should().Be(-1);
             time.Seconds.Should().Be(0);
@@ -247,11 +246,11 @@ namespace TimeTests {
 
         [Test]
         public void AddMinutes_ZeroMinutesArgument_ShouldReturnCorrectTime() {
-            //Arrange 
+            // Arrange 
             Time time = new Time();
-            //Act
+            // Act
             time.AddMinutes(0);
-            //Assert
+            // Assert
             time.Hours.Should().Be(0);
             time.Minutes.Should().Be(0);
             time.Seconds.Should().Be(0);
@@ -259,11 +258,11 @@ namespace TimeTests {
 
         [Test]
         public void AddHours_PositiveNumberArgument_ShouldReturnCorrectTime() {
-            //Arrange 
+            // Arrange 
             Time time = new Time();
-            //Act
+            // Act
             time.AddHours(1);
-            //Assert
+            // Assert
             time.Hours.Should().Be(1);
             time.Minutes.Should().Be(0);
             time.Seconds.Should().Be(0);
@@ -271,11 +270,11 @@ namespace TimeTests {
 
         [Test]
         public void AddHours_NegativeNumberArgument_ShouldReturnCorrectTime() {
-            //Arrange 
+            // Arrange 
             Time time = new Time();
-            //Act
+            // Act
             time.AddHours(-1);
-            //Assert
+            // Assert
             time.Hours.Should().Be(-1);
             time.Minutes.Should().Be(0);
             time.Seconds.Should().Be(0);
@@ -283,11 +282,11 @@ namespace TimeTests {
 
         [Test]
         public void AddHours_ZeroHoursArgument_ShouldReturnCorrectTime() {
-            //Arrange 
+            // Arrange 
             Time time = new Time();
-            //Act
+            // Act
             time.AddHours(0);
-            //Assert
+            // Assert
             time.Hours.Should().Be(0);
             time.Minutes.Should().Be(0);
             time.Seconds.Should().Be(0);
@@ -295,53 +294,53 @@ namespace TimeTests {
 
         [Test]
         public void CompareTo_OtherTimeLess_ShouldReturnOne() {
-            //Arrange
+            // Arrange
             Time a = new Time(10, 10, 10);
             Time b = new Time(5, 5, 5);
 
-            //Act
+            // Act
             int result = a.CompareTo(b);
 
-            //Assert
+            // Assert
             result.Should().Be(1);
         }
 
         [Test]
         public void CompareTo_OtherTimeGreater_ShouldReturnMinusOne() {
-            //Arrange
+            // Arrange
             Time a = new Time(5, 5, 5);
             Time b = new Time(10, 10, 10);
 
-            //Act
+            // Act
             int result = a.CompareTo(b);
 
-            //Assert
+            // Assert
             result.Should().Be(-1);
         }
 
         [Test]
         public void CompareTo_OtherTimeEquals_ShouldReturnZero() {
-            //Arrange
+            // Arrange
             Time a = new Time(5, 5, 5);
             Time b = new Time(5, 5, 5);
 
-            //Act
+            // Act
             int result = a.CompareTo(b);
 
-            //Assert
+            // Assert
             result.Should().Be(0);
         }
 
         [Test]
         public void Equals_OtherTimesSame_ShouldReturnTrue() {
-            //Arrange
+            // Arrange
             Time a = new Time(1, 1, 1);
             Time b = new Time(1, 1, 1);
 
-            //Act
+            // Act
             bool result = a.Equals(b);
 
-            //Assert
+            // Assert
             result.Should().Be(true);
         }
 
@@ -460,8 +459,9 @@ namespace TimeTests {
             //Assert
             result.Should().Be(true);
         }
+
         [Test]
-        public void GreaterThan_OtherTimeGreaterThan_ShouldResultBeFale() {
+        public void GreaterThan_OtherTimeGreaterThan_ShouldResultBeFalse() {
             // Arrange
             Time a = new Time(2, 2, 2);
             Time b = new Time(3, 3, 3);
@@ -472,6 +472,7 @@ namespace TimeTests {
             //Assert
             result.Should().Be(false);
         }
+
         [Test]
         public void GreaterThan_OtherTimeEquals_ShouldResultBeFalse() {
             // Arrange
@@ -484,6 +485,7 @@ namespace TimeTests {
             //Assert
             result.Should().Be(false);
         }
+
         [Test]
         public void LessThan_OtherTimeGreaterThan_ShouldResultBeTrue() {
             // Arrange
@@ -496,6 +498,7 @@ namespace TimeTests {
             //Assert
             result.Should().Be(true);
         }
+
         [Test]
         public void LessThan_OtherTimeLessThan_ShouldResultBeFale() {
             // Arrange
@@ -508,6 +511,7 @@ namespace TimeTests {
             //Assert
             result.Should().Be(false);
         }
+
         [Test]
         public void LessThan_OtherTimeEquals_ShouldResultBeFalse() {
             // Arrange
@@ -520,6 +524,7 @@ namespace TimeTests {
             //Assert
             result.Should().Be(false);
         }
+
         [Test]
         public void GreaterThanOrEqualTo_OtherTimeLessThan_ShouldResultBeTrue() {
             // Arrange
@@ -532,6 +537,7 @@ namespace TimeTests {
             //Assert
             result.Should().Be(true);
         }
+
         [Test]
         public void GreaterThanOrEqualTo_OtherTimeGreaterThan_ShouldResultBeFalse() {
             // Arrange
@@ -544,6 +550,7 @@ namespace TimeTests {
             //Assert
             result.Should().Be(false);
         }
+
         [Test]
         public void GreaterThanOrEqualTo_OtherTimeEquals_ShouldResultBeTrue() {
             // Arrange
@@ -556,6 +563,7 @@ namespace TimeTests {
             //Assert
             result.Should().Be(true);
         }
+
         [Test]
         public void LessThanOrEqualTo_OtherTimeGreaterThan_ShouldResultBeTrue() {
             // Arrange
@@ -568,6 +576,7 @@ namespace TimeTests {
             //Assert
             result.Should().Be(true);
         }
+
         [Test]
         public void LessThanOrEqualTo_OtherTimeLessThan_ShouldResultBeFalse() {
             // Arrange
@@ -580,6 +589,7 @@ namespace TimeTests {
             //Assert
             result.Should().Be(false);
         }
+
         [Test]
         public void LessThanOrEqualTo_OtherTimeEquals_ShouldResultBeTrue() {
             // Arrange
@@ -592,6 +602,7 @@ namespace TimeTests {
             //Assert
             result.Should().Be(true);
         }
+
         [Test]
         public void IsEquals_OtherTimeEquals_ShouldResultBeTrue() {
             // Arrange
@@ -604,6 +615,7 @@ namespace TimeTests {
             //Assert
             result.Should().Be(true);
         }
+
         [Test]
         public void IsEquals_OtherTimeNotEquals_ShouldResultBeFalse() {
             // Arrange
@@ -616,6 +628,7 @@ namespace TimeTests {
             //Assert
             result.Should().Be(false);
         }
+
         [Test]
         public void IsNotEquals_OtherTimeEquals_ShouldResultBeFalse() {
             // Arrange
@@ -628,6 +641,7 @@ namespace TimeTests {
             //Assert
             result.Should().Be(false);
         }
+
         [Test]
         public void IsNotEquals_OtherTimeNotEquals_ShouldResultBeTrue() {
             // Arrange
@@ -640,6 +654,17 @@ namespace TimeTests {
             //Assert
             result.Should().Be(true);
         }
-    }
 
+        [Test]
+        public void ToString_ShouldReturnFormattedString() {
+            // Arrange
+            Time time = new Time(1, 1, 1);
+            
+            // Act
+            string s = time.ToString();
+
+            // Assert
+            s.Should().Be("01:01:01");
+        }
+    }
 }
